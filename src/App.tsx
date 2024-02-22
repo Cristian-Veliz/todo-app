@@ -1,16 +1,36 @@
+import {useState} from 'react';
+import {Todos} from './components/Todos';
 
-import './App.css'
+const mockTodos = [
+  {
+    id: '1',
+    title: 'todo 1',
+    completed: false,
+    
+  },
+  {
+    id: '2',
+    title: 'todo 2',
+    completed: false,
+  },
+  {
+    id: '3',
+    title: 'todo 3',
+    completed: false,
+  }
+]
 
-function App() {
-  //const [count, setCount] = useState(0)
 
+const App = () : JSX.Element => {
+ const [todos, setTodos] = useState(mockTodos)
   return (
     <div>
-      <h1>Pagina de Prueba Todo App</h1>
+      <h1>Hola</h1>
+
+    <Todos todos={todos}/>
     </div>
   )
 }
 
-export default App
-
+export default App;
 
