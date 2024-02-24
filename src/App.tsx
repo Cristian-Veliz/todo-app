@@ -21,11 +21,11 @@ const mockTodos = [
 ]
 
 
-const App = () : JSX.Element => {
- const [todos, setTodos] = useState(mockTodos)
+const App = (): JSX.Element => {
+ const [todos] = useState(mockTodos)
   return (
     <div>
-      <h1>Hola</h1>
+      <h1>HOLAA TODO-APP</h1>
 
     <Todos todos={todos}/>
     </div>
@@ -34,3 +34,4 @@ const App = () : JSX.Element => {
 
 export default App;
 
+ 
