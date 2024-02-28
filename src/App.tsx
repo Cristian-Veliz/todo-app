@@ -15,7 +15,7 @@ const mockTodos = [
   },
   {
     id: '3',
-    title: 'LLamar a oficina',
+    title: 'Aprender React con TypeScript ',
     completed: false,
   }
 ]
