@@ -5,7 +5,7 @@ import { type TodoId, type TodoType } from './types';
 const mockTodos = [
   {
     id: '1',
-    title: 'Reunión con',
+    title: 'Reunión con el equipo de dasarrollo',
     completed: true,
     
   },
@@ -16,7 +16,7 @@ const mockTodos = [
   },
   {
     id: '3',
-    title: 'Aprender React con TypeScript ',
+    title: 'Aprender TypeScript ',
     completed: false,
   }
 ]
