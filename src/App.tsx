@@ -51,7 +51,7 @@ const handleCompleted = ({ id, completed }: { id: TodoId; completed: TodoComplet
     <Todos 
         onRemoveTodo={handleRemove}
         todos={todos} 
-        onToggleCompleteTodo={(todo) => handleCompleted(todo)}
+        onToggleCompleteTodo={handleCompleted}
         />
     </div>
   ) 
