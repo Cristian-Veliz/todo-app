@@ -5,18 +5,18 @@ import { type TodoId, type Todo as TodoType, TodoCompleted} from './types';
 const mockTodos = [
   {
     id: '1',
-    title: 'Reunión con el equipo de dasarrollo',
-    completed: true,
+    title: 'Tarea 1',
+    completed: false,
     
   },
   {
     id: '2',
-    title: 'Ir al correo',
-    completed: true,
+    title: 'Tarea 2',
+    completed: false,
   },
   {
     id: '3',
-    title: 'Aprender TypeScript ',
+    title: 'Tarea 3',
     completed: false,
   }
 ]
@@ -45,7 +45,7 @@ const handleCompleted = ({ id, completed }: { id: TodoId; completed: TodoComplet
   return (
     <div className='todoapp'>
       <h1 style={{ fontSize: '35px', color: '#3498db', marginTop: '50px' }}>
-       Todo-App 🚀
+      Organiza tu Día con Todo-App 🚀
       </h1>
 
     <Todos 

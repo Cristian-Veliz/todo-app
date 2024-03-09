@@ -1,3 +1,10 @@
+import { FILTER_BUTTONS, TODO_FILTERS } from "../consts";
+
+interface Props {
+filterSelected: typeof TODO_FILTERS[keyof typeof TODO_FILTERS]   
+}
+
+
 export const Filters: React.FC<Props> = (filterSelected, onFilterChange) => {
 
     return (
