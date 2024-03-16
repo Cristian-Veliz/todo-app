@@ -13,15 +13,17 @@ export const Footer: React.FC<Props> = ({
 activeCount = 0,
 completedCount = 0,
 filterSelected,
+onClearCompleted,
+handleFilterChange,
 }) => {
 return (
     <footer className="footer">
     <span className="todo-count">
-        <strong>{activeCount}</strong> tareas pendientes
+        <strong>{activeCount}</strong> Tareas pendientes
     </span>
     <Filters 
     filterSelected = {filterSelected}
-    onFilterChange = {() => {}}
+    onFilterChange = {handleFilterChange}
     />
 
     
