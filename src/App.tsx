@@ -8,17 +8,17 @@ import { Footer } from './components/Footer';
 const mockTodos = [
   {
     id: '1',
-    title: 'Tarea 1',
+    title: 'meet con el equipo',
     completed: false,
   },
   {
     id: '2',
-    title: 'Tarea 2',
+    title: 'deploy',
     completed: false,
   },
   {
     id: '3',
-    title: 'Tarea 3',
+    title: 'ir al medico',
     completed: false,
   }
 ];
