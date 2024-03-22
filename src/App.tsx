@@ -1,9 +1,10 @@
 // App.tsx
-import React, { useState } from 'react';
-import { Todos } from './components/Todos';
-import { TodoId, TodoCompleted, FilterValue } from './types';
-import { TODO_FILTERS } from './consts';
+import { useState } from 'react';
 import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { Todos } from './components/Todos';
+import { TODO_FILTERS } from './consts';
+import { type TodoId, TodoCompleted, FilterValue, TodoTitle } from './types';
 
 const mockTodos = [
   {
@@ -62,10 +63,21 @@ const App = (): JSX.Element => {
     return todo;
   });
 
+  const handleAddTodo = ({title}: TodoTitle): void => {
+    const newTodo = {
+      title,
+      id: crypto.randomUUID(),
+      completed: false
+    }
+    const newTodos = [...todos, newTodo]
+    setTodos(newTodos)
+  }
+
   return (
     <div className='todoapp'>
+      <Header onAddTodo={handleAddTodo} />
       <h1 style={{ fontSize: '35px', color: '#3498db', marginTop: '50px' }}>
-        Organiza tu Día con Todo-App 🚀
+        {/* Organiza tu Día con Todo-App 🚀 */}
       </h1>
       <Todos
         onToggleCompleteTodo={handleCompleted}

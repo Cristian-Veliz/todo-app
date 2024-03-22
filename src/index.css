@@ -2,9 +2,9 @@
 
 body{
     background-color:  #242424;
+    /* filter: invert(100%); */
 }
 
 a:empty {
     display: inline-block;
   }
-  
