@@ -5,6 +5,7 @@ import { Header } from "./components/Header";
 import { Todos } from "./components/Todos";
 import { TODO_FILTERS } from "./consts";
 import { type TodoId, TodoCompleted, FilterValue, TodoTitle } from "./types";
+import Swal from "sweetalert2";
 
 const mockTodos = [
   {
@@ -66,6 +67,17 @@ const App = (): JSX.Element => {
     });
 
     setTodos(updatedTodos);
+
+    if (completed) {
+      Swal.fire({
+        title: 'TAREA COMPLETA',
+        text: '¡Sigue adelante!✅',
+        icon: 'success',
+        timer: 1500, 
+        showConfirmButton: false
+      });
+    }
+
   };
 
   const handleFilterChange = (filter: FilterValue): void => {
