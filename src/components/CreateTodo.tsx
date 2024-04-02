@@ -23,7 +23,7 @@ export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
         className="new-todo"
         value={inputValue}
         onChange={(event) => {setInputValue(event.target.value)}}
-        placeholder="¿Qué deseas hacer?✅"
+        placeholder="¿Qué tareas deseas hacer?✅"
         autoFocus
       />
     </form>

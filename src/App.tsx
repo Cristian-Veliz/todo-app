@@ -1,5 +1,5 @@
 // App.tsx
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Todos } from "./components/Todos";
@@ -41,15 +41,25 @@ const mockTodos = [
 ];
 
 
+
 const App = (): JSX.Element => {
   const [todos, setTodos] = useState(mockTodos);
   const [filterSelected, setFilterSelected] = useState<FilterValue>(
     TODO_FILTERS.ALL
   );
+ 
+ useEffect(() => {
+  const storageTodos = localStorage.getItem('todos')
+  if(storageTodos) {
+    setTodos(JSON.parse(storageTodos))
+  } 
+ },[])
+ 
 
   const handleRemove = ({ id }: TodoId): void => {
     const newTodos = todos.filter((todo) => todo.id !== id);
     setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos))
   };
 
   const handleCompleted = ({
@@ -67,11 +77,12 @@ const App = (): JSX.Element => {
     });
 
     setTodos(updatedTodos);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos))
 
     if (completed) {
       Swal.fire({
         title: 'TAREA COMPLETA',
-        text: '¡Sigue adelante!✅',
+        text: '¡Sigue adelante! ✅',
         icon: 'success',
         timer: 1500, 
         showConfirmButton: false
@@ -107,6 +118,7 @@ const App = (): JSX.Element => {
     };
     const newTodos = [...todos, newTodo];
     setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos))
   };
 
   return (
