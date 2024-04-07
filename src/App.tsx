@@ -1,8 +1,9 @@
-// App.tsx
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Todos } from "./components/Todos";
+import { Landing } from "./components/Landing/Landing";
 import { TODO_FILTERS } from "./consts";
 import { type TodoId, TodoCompleted, FilterValue, TodoTitle } from "./types";
 import Swal from "sweetalert2";
@@ -40,21 +41,18 @@ const mockTodos = [
   },
 ];
 
-
-
 const App = (): JSX.Element => {
   const [todos, setTodos] = useState(mockTodos);
   const [filterSelected, setFilterSelected] = useState<FilterValue>(
     TODO_FILTERS.ALL
   );
- 
- useEffect(() => {
-  const storageTodos = localStorage.getItem('todos')
-  if(storageTodos) {
-    setTodos(JSON.parse(storageTodos))
-  } 
- },[])
- 
+
+  useEffect(() => {
+    const storageTodos = localStorage.getItem('todos')
+    if (storageTodos) {
+      setTodos(JSON.parse(storageTodos))
+    }
+  }, [])
 
   const handleRemove = ({ id }: TodoId): void => {
     const newTodos = todos.filter((todo) => todo.id !== id);
@@ -84,11 +82,10 @@ const App = (): JSX.Element => {
         title: 'TAREA COMPLETA',
         text: '¡Sigue adelante! ✅',
         icon: 'success',
-        timer: 1500, 
+        timer: 1500,
         showConfirmButton: false
       });
     }
-
   };
 
   const handleFilterChange = (filter: FilterValue): void => {
@@ -121,26 +118,36 @@ const App = (): JSX.Element => {
     localStorage.setItem('todos', JSON.stringify(newTodos))
   };
 
+  const { pathname } = useLocation();
+
   return (
     <div className="todoapp">
-      <Header onAddTodo={handleAddTodo} />
-      <h1 style={{ fontSize: "35px", color: "#3498db", marginTop: "50px" }}>
-        {/* Organiza tu Día con Todo-App 🚀 */}
-      </h1>
-      <Todos
-        onToggleCompleteTodo={handleCompleted}
-        onRemoveTodo={handleRemove}
-        todos={filteredTodos}
-      />
-      <Footer
-        activeCount={activeCount}
-        completedCount={completedCount}
-        filterSelected={filterSelected}
-        onClearCompleted={handleRemoveAllCompleted}
-        handleFilterChange={handleFilterChange}
-      />
+      <Routes>
+        <Route path="/" element={<Landing buttonText="Ingresar" buttonLink="/home" />} />
+        <Route path="/home" element={
+          <React.Fragment>
+            <Header onAddTodo={handleAddTodo} />
+            <h1 style={{ fontSize: "35px", color: "#3498db", marginTop: "50px" }}>
+              {/* Organiza tu Día con Todo-App 🚀 */}
+            </h1>
+            <Todos
+              onToggleCompleteTodo={handleCompleted}
+              onRemoveTodo={handleRemove}
+              todos={filteredTodos}
+            />
+            <Footer
+              activeCount={activeCount}
+              completedCount={completedCount}
+              filterSelected={filterSelected}
+              onClearCompleted={handleRemoveAllCompleted}
+              handleFilterChange={handleFilterChange}
+            />
+          </React.Fragment>
+        } />
+      </Routes>
     </div>
   );
 };
 
 export default App;
+
