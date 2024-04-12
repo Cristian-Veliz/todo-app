@@ -24,21 +24,7 @@ const mockTodos = [
     title: "ir al medico",
     completed: false,
   },
-  {
-    id: "4",
-    title: "ir a correr",
-    completed: false,
-  },
-  {
-    id: "5",
-    title: "Pasear a Simón",
-    completed: false,
-  },
-  {
-    id: "6",
-    title: "Ir a correr",
-    completed: false,
-  },
+
 ];
 
 const App = (): JSX.Element => {
