@@ -13,7 +13,7 @@ return (
     <div className={styles.container}>
         
         <h1 style={{ color: "#2196f3", fontSize: '45px', marginTop: '70px' }}> ¡Bienvenido a Todo App!</h1>
-        <p >Organiza tu día de manera eficiente y haz que cada momento cuente con nuestra aplicación de tareas. Desde gestionar tus pendientes diarios hasta planificar proyectos importantes, Todo App te ayuda a mantener el control y la claridad en tu vida. 📅✨</p>
+        <p style={{textAlign: "center"}}>Organiza tu día de manera eficiente con Todo App. Desde gestionar tus tareas diarias hasta planificar proyectos importantes, nuestra aplicación te ayuda a mantener el control y la claridad en tu vida. Simplifica tu rutina y haz que cada momento cuente. 📅✨</p>
         <Link to={buttonLink}>
         <button className={styles.button}>{buttonText}</button>
         </Link>
