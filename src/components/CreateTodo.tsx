@@ -5,14 +5,14 @@ interface Props {
   onAddTodo: ({ title }: TodoTitle) => void;
 }
 
-export const CreateTodo: React.FC<Props> = ({ saveTodo }) => {
+export const CreateTodo: React.FC<Props> = ({ onAddTodo }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit= (
     event: React.FormEvent<HTMLFormElement>
   ): void => {
   event.preventDefault()  
-  saveTodo({title: inputValue})
+  onAddTodo({title: inputValue})
   setInputValue('')
 
   };

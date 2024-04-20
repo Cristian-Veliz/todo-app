@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Todos } from "./components/Todos";
@@ -104,7 +104,6 @@ const App = (): JSX.Element => {
     localStorage.setItem('todos', JSON.stringify(newTodos))
   };
 
-  const { pathname } = useLocation();
 
   return (
     <div className="todoapp">
@@ -114,7 +113,6 @@ const App = (): JSX.Element => {
           <React.Fragment>
             <Header onAddTodo={handleAddTodo} />
             <h1 style={{ fontSize: "35px", color: "#3498db", marginTop: "50px" }}>
-              {/* Organiza tu Día con Todo-App 🚀 */}
             </h1>
             <Todos
               onToggleCompleteTodo={handleCompleted}
