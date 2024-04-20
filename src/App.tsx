@@ -11,17 +11,17 @@ import Swal from "sweetalert2";
 const mockTodos = [
   {
     id: "1",
-    title: "meet con el equipo",
+    title: "Tarea 1",
     completed: false,
   },
   {
     id: "2",
-    title: "deploy",
+    title: "Tarea 2",
     completed: false,
   },
   {
     id: "3",
-    title: "ir al medico",
+    title: "Tarea 3",
     completed: false,
   },
 
